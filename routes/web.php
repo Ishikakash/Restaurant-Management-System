@@ -54,6 +54,8 @@ Route::get("/remove/{id}", [HomeController::class, 'remove']);
 
 Route::get("/orders", [AdminController::class, 'orders']);
 
+Route::get("/search", [AdminController::class, 'search']);
+
 Route::post("/orderconfirm", [HomeController::class, 'orderconfirm']);
 
 Route::middleware([

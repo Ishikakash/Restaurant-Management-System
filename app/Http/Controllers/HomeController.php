@@ -13,6 +13,10 @@ use App\Models\Order;
 class HomeController extends Controller
 {
     public function index() {
+        if(Auth::id()){
+            return redirect('redirects');
+        }
+        else
         $data=Food::all();
         $data2 = Foodchef::all();
         return view("home", compact("data", "data2"));
@@ -55,10 +59,16 @@ class HomeController extends Controller
 
     public function showcart(Request $request, $id){
         $count=Cart::where('user_id', $id)->count();
+        if(Auth::id()==$id){
+
+
         $data=Cart::where('user_id', $id)->join('food', 'carts.food','=', 'food.id')->get();
         $data2 = Cart::select('*')->where('user_id', '=' , $id)->get();
 
         return view('showcart', compact('count', 'data','data2'));
+    } else {
+        return redirect()->back();
+    }
     }
 
     public function remove($id) {
