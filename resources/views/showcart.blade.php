@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
+
     <title>Klassy Cafe - Restaurant HTML Template</title>
 <!--
 
@@ -146,10 +146,10 @@ https://templatemo.com/tm-558-klassy-cafe
     </tr>
     </table>
     <div style="text-align: center; margin-top: 20px;">
-    <button style="padding: 10px 20px; background-color: orangered; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Order Now</button>
+    <button id="order" style="padding: 10px 20px; background-color: orangered; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Order Now</button>
 </div>
 
-<div style="max-width: 300px; margin: 0 auto;">
+<div style="max-width: 300px; margin: 0 auto; display: none;" id="appear">
     <div style="margin-bottom: 10px;">
         <label for="" style="display: block; font-weight: bold;">Name</label>
         <input type="text" name="name" placeholder="Enter your name" style="width: 100%; padding: 5px; border: 1px solid #ccc; border-radius: 3px;">
@@ -164,14 +164,30 @@ https://templatemo.com/tm-558-klassy-cafe
     </div>
     <div style="text-align: center; margin-top: 20px;">
     <input type="submit" value="Confirm your Order" style="padding: 10px 20px; background-color: orangered; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
-</div>
+    <button id="close" style="padding: 10px 20px; background-color: #61A3BA; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Close</button>
 
 </div>
 
 </div>
 
+</div>
+
 
 </div>
+
+<script type="text/javascript">
+    $("#order").click(
+        function() {
+            $("#appear").show();
+        }
+    );
+    $("#close").click(
+        function() {
+            $("#appear").hide();
+        }
+    );
+
+</script>
 
 
     <!-- jQuery -->
