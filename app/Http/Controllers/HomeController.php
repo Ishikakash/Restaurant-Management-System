@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Food;
 use App\Models\Foodchef;
 use App\Models\Cart;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -65,4 +66,24 @@ class HomeController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+    public function orderconfirm(Request $request) {
+        $name = $request->name;
+        $phone = $request->phone;
+        $address = $request->address;
+
+        foreach ($request->foodname as $key => $foodname) {
+            $data = new Order;
+            $data->foodname = $foodname;
+            $data->price = $request->price[$key];
+            $data->quantity = $request->quantity[$key];
+            $data->name = $name; // Use the common name value
+            $data->phone = $phone; // Use the common phone value
+            $data->address = $address; // Use the common address value
+            $data->save();
+        }
+
+        return redirect()->back();
+    }
+
 }

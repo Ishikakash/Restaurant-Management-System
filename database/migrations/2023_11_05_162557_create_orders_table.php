@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('price')->nullable();
             $table->string('quantity')->nullable();
             $table->string('name')->nullable();
-            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->timestamps();
         });

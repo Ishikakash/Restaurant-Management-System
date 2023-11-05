@@ -130,11 +130,13 @@ https://templatemo.com/tm-558-klassy-cafe
             <th style="padding: 30px; background-color: orangered; color: #fff;">Quantity</th>
             <th style="padding: 30px; background-color: orangered; color: #fff;">Remove</th>
         </tr>
+        <form action="{{url('orderconfirm')}}" method="post">
+            @csrf
         @foreach($data as $data)
         <tr align="center">
-            <td style="padding: 10px;">{{$data->title}}</td>
-            <td style="padding: 10px;">{{$data->price}}</td>
-            <td style="padding: 10px;">{{$data->quantity}}</td>
+            <td style="padding: 10px;"><input type="text" name="foodname[]" value="{{$data->title}}" hidden>{{$data->title}}</td>
+            <td style="padding: 10px;"><input type="text" name="price[]" value="{{$data->price}}" hidden>{{$data->price}}</td>
+            <td style="padding: 10px;"><input type="text" name="quantity[]" value="{{$data->quantity}}" hidden>{{$data->quantity}}</td>
         </tr>
         @endforeach
 
@@ -146,7 +148,7 @@ https://templatemo.com/tm-558-klassy-cafe
     </tr>
     </table>
     <div style="text-align: center; margin-top: 20px;">
-    <button id="order" style="padding: 10px 20px; background-color: orangered; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Order Now</button>
+    <button id="order" type="button" style="padding: 10px 20px; background-color: orangered; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Order Now</button>
 </div>
 
 <div style="max-width: 300px; margin: 0 auto; display: none;" id="appear">
@@ -164,11 +166,13 @@ https://templatemo.com/tm-558-klassy-cafe
     </div>
     <div style="text-align: center; margin-top: 20px;">
     <input type="submit" value="Confirm your Order" style="padding: 10px 20px; background-color: orangered; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
-    <button id="close" style="padding: 10px 20px; background-color: #61A3BA; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Close</button>
+    <button id="close" type="button" style="padding: 10px 20px; background-color: #61A3BA; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Close</button>
 
 </div>
 
 </div>
+
+</form>
 
 </div>
 
