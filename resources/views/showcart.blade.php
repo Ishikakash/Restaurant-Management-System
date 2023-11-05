@@ -10,7 +10,8 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
     <title>Klassy Cafe - Restaurant HTML Template</title>
 <!--
 
@@ -124,19 +125,54 @@ https://templatemo.com/tm-558-klassy-cafe
     <div id="top">
     <table align="center">
         <tr>
-            <th style="padding: 30px">Food Name</th>
-            <th style="padding: 30px">Price</th>
-            <th style="padding: 30px">Quantity</th>
+            <th style="padding: 30px; background-color: orangered; color: #fff;">Food Name</th>
+            <th style="padding: 30px; background-color: orangered; color: #fff;">Price</th>
+            <th style="padding: 30px; background-color: orangered; color: #fff;">Quantity</th>
+            <th style="padding: 30px; background-color: orangered; color: #fff;">Remove</th>
         </tr>
         @foreach($data as $data)
-        <tr>
-            <td>{{$data->title}}</td>
-            <td>{{$data->price}}</td>
-            <td>{{$data->quantity}}</td>
+        <tr align="center">
+            <td style="padding: 10px;">{{$data->title}}</td>
+            <td style="padding: 10px;">{{$data->price}}</td>
+            <td style="padding: 10px;">{{$data->quantity}}</td>
         </tr>
         @endforeach
+
+        @foreach($data2 as $data2)
+        <tr style="position: relative; top: -85px; right
+        : -400px;">
+        <td style="padding: 10px;"><a href="{{url('/remove' ,$data2->id)}}"  style="text-decoration: none; color: #ff0000;">Remove</a></td>
+        @endforeach
+    </tr>
     </table>
+    <div style="text-align: center; margin-top: 20px;">
+    <button style="padding: 10px 20px; background-color: orangered; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Order Now</button>
+</div>
+
+<div style="max-width: 300px; margin: 0 auto;">
+    <div style="margin-bottom: 10px;">
+        <label for="" style="display: block; font-weight: bold;">Name</label>
+        <input type="text" name="name" placeholder="Enter your name" style="width: 100%; padding: 5px; border: 1px solid #ccc; border-radius: 3px;">
     </div>
+    <div style="margin-bottom: 10px;">
+        <label for="" style="display: block; font-weight: bold;">Phone</label>
+        <input type="text" name="phone" placeholder="Enter your contact" style="width: 100%; padding: 5px; border: 1px solid #ccc; border-radius: 3px;">
+    </div>
+    <div>
+        <label for="" style="display: block; font-weight: bold;">Address</label>
+        <input type="text" name="address" placeholder="Enter your address" style="width: 100%; padding: 5px; border: 1px solid #ccc; border-radius: 3px;">
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+    <input type="submit" value="Confirm your Order" style="padding: 10px 20px; background-color: orangered; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
